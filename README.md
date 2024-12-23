@@ -9,7 +9,7 @@ Open almost any executable file without administrator.
 appUnblocker uses an oversight in `SET __COMPAT_LAYER` in batchscript, then using the `RunAsInvoker` variable, which allows you to run most executable files without administrator.
 
 # Compatibility
-appUnblocker is supported on Windows 10/11.
+appUnblocker is supported on Windows 10/11. Not all executable files work properly with this and may break if opened using appUnblocker.
 > [!NOTE]
 > appUnblocker may work on older Windows releases, but it may not be consistent in its success or is even fully supported.
 
