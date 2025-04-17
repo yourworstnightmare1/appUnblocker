@@ -64,4 +64,4 @@ Pause
 Clear-Host
 Write-Host "Changing directory..."
 Set-Location (Split-Path -Parent $MyInvocation.MyCommand.Path)
-Start-Process ".\exploit.bat"
+Invoke-Expression -Command ".\exploit.bat"
