@@ -1,0 +1,44 @@
+{
+  "name": "appunblocker",
+  "version": "3.0.0",
+  "description": "Open executables without administrator (Windows)",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "author": "yourworstnightmare1",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^35.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.appunblocker.gui",
+    "productName": "appUnblocker",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "macos-unblocker.js",
+      "preload.js",
+      "renderer/**/*",
+      "assets/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "../appunblocker.ps1",
+        "to": "appunblocker.ps1"
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": ["dmg", "zip"]
+    },
+    "win": {
+      "target": ["nsis", "portable"]
+    }
+  }
+}

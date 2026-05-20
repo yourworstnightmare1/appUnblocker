@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' file:" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>appUnblocker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="brand">
+        <img class="logo" src="../assets/logo.png" alt="appUnblocker logo" width="128" height="128" />
+        <h1 class="title">appUnblocker</h1>
+      </header>
+
+      <section class="picker">
+        <label class="picker-label" for="path-input">Application</label>
+        <div class="picker-row">
+          <input id="path-input" class="path-input" type="text" placeholder="Select an .exe or app…" readonly />
+          <button id="browse-btn" type="button" class="btn btn-secondary">Browse</button>
+        </div>
+
+        <div id="output-panel" class="output-panel hidden">
+          <span class="output-label">Output</span>
+          <div id="output-log" class="output-log" role="log" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <div class="action-row">
+        <button id="start-btn" type="button" class="btn btn-primary" disabled>Start</button>
+        <div id="method-menu" class="method-menu hidden">
+          <button
+            id="method-btn"
+            type="button"
+            class="btn btn-method"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-label="Unblock method: Folder Manipulation"
+            title="Folder Manipulation"
+          >
+            <span class="method-chevron" aria-hidden="true">▾</span>
+          </button>
+          <ul id="method-dropdown" class="method-dropdown hidden" role="listbox" aria-label="macOS unblock method">
+            <li class="method-option selected" role="option" data-method="folder" data-label="Folder">Folder Manipulation</li>
+            <li class="method-option" role="option" data-method="gatekeeper" data-label="Gatekeeper">Gatekeeper Bypass</li>
+            <li class="method-option" role="option" data-method="both" data-label="Both">Both</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <script src="renderer.js"></script>
+  </body>
+</html>
