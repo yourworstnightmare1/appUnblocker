@@ -59,7 +59,13 @@ npm install
 npm run dist
 ```
 
-Built artifacts are written to `electron/dist/`. Run the Windows build on Windows for the `RunAsInvoker` launch path.
+Built artifacts are written to `release/`:
+
+```powershell
+.\build-release.ps1
+```
+
+Produces `appunblocker-{version}-cli.zip`, `appunblocker-{version}-win-x86_64-gui.zip`, and on **macOS** also `appunblocker-{version}-macos-{arm64|x86_64}-gui.zip`. Use `-SkipWindows` or `-SkipMac` to omit a platform.
 
 On macOS, use the **method** menu next to **Start** to pick **Folder Manipulation**, **Gatekeeper Bypass**, or **Both** (same options as the PowerShell CLI), then run.
 
