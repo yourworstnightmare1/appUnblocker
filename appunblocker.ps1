@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 
 [CmdletBinding()]
 param(
@@ -78,7 +78,7 @@ function Write-Log {
 
 function Write-SectionHeader {
     Write-Log "///////////////////////////////////" -Level Info
-    Write-Log "////// appUnblocker loader //////" -Level Info
+    Write-Log "////// appUnblocker loader ////////"
     Write-Log "///////////////////////////////////" -Level Info
 }
 
@@ -127,7 +127,7 @@ function Start-WindowsUnblock {
     param([string]$TargetPath)
 
     if ([string]::IsNullOrWhiteSpace($TargetPath)) {
-        Write-Log "No path given — starting Command Prompt." -Level Warn
+        Write-Log "No path given - starting Command Prompt." -Level Warn
         Start-Process cmd.exe
         return
     }
@@ -450,7 +450,7 @@ public class WinAPI {
             [void][WinAPI]::ShowWindow($hWnd, [WinAPI]::SW_MAXIMIZE)
         }
         catch {
-            # Non-interactive or no console — ignore
+            # Non-interactive or no console - ignore
         }
     }
 

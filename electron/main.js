@@ -126,10 +126,12 @@ function launchWindows(targetPath, log) {
     log("Setting compatibility layer and opening app…", "cmd");
     log("set __COMPAT_LAYER=RunAsInvoker", "cmd");
 
-    const quoted = `"${targetPath.replace(/"/g, '\\"')}"`;
-    const child = spawn("cmd.exe", ["/c", `set __COMPAT_LAYER=RunAsInvoker && start "" ${quoted}`], {
+    // Match appunblocker.ps1 (env + Start-Process). cmd.exe "start" can hang
+    // waiting on some installers, which left the GUI stuck on "Start".
+    const psCommand = `$env:__COMPAT_LAYER='RunAsInvoker'; Start-Process -FilePath ${JSON.stringify(targetPath)}`;
+    const child = spawn("powershell.exe", ["-NoProfile", "-ExecutionPolicy", "Bypass", "-Command", psCommand], {
+      stdio: "ignore",
       windowsHide: true,
-      shell: false,
     });
 
     child.on("error", (err) => {
