@@ -98,7 +98,7 @@ function createLogger(sender) {
 }
 
 function createWindow() {
-  const iconPath = path.join(__dirname, "assets", "logo.png");
+  const iconPath = path.join(__dirname, "assets", "icon.png");
   const icon = fs.existsSync(iconPath) ? nativeImage.createFromPath(iconPath) : undefined;
 
   const win = new BrowserWindow({

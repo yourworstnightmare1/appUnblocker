@@ -36,10 +36,26 @@ npm install
 npm start
 ```
 
-## Build installers
+## Build release zips (Windows x64)
 
-```bash
+From the repo root (requires [Node.js](https://nodejs.org)):
+
+```powershell
+.\build-release.ps1
+```
+
+This writes:
+
+- `release/appunblocker-v4.0-x86_64-cli.zip` — `appunblocker.ps1`, `LICENSE`, `README.md`
+- `release/appunblocker-v4.0-x86_64-gui.zip` — packaged Electron app (run `appUnblocker.exe` inside the zip after extracting)
+
+Optional parameters: `-Version v4.0`, `-Arch x86_64`, `-OutputDir release`.
+
+GUI-only or manual build:
+
+```powershell
 cd electron
+npm install
 npm run dist
 ```
 
